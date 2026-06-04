@@ -1,0 +1,5 @@
+pyautogui
+pyppeteer
+# 可选：虚拟显示（推荐）
+pyvirtualdisplay
+pillow
