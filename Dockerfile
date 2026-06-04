@@ -62,4 +62,4 @@ RUN adduser -D appuser
 USER appuser
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["python", "your_script.py"]
+CMD ["python", "test.py"]
