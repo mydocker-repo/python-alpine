@@ -18,6 +18,8 @@ async def main():
         args=['--no-sandbox', '--disable-setuid-sandbox']
     )
     # ... 你的代码
+    page = await browser.newPage()
+    await page.screenshot({'path': 'test.png'},fullPage=True)
     await browser.close()
 
 asyncio.run(main())
