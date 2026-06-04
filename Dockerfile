@@ -59,8 +59,12 @@ RUN chmod +x /entrypoint.sh
 # 创建启动脚本（推荐）
 COPY test.py .
 # 非 root 用户运行（安全）
-RUN adduser -D appuser
-USER appuser
+# 创建 X11 必要目录并授权（非常重要）
+RUN mkdir -p /tmp/.X11-unix /tmp/.X11-unix && \
+    chmod 1777 /tmp/.X11-unix && \
+    chown root:root /tmp/.X11-unix
+#RUN adduser -D appuser
+#USER appuser
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["python", "test.py"]
